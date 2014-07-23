@@ -74,8 +74,8 @@ There are 5 callbacks, one for each rest method (GET, PUT, POST, DELETE and GET/
 'use strict';
 
 var modelName = 'user',
-    model = require('models/api/'+modelName)
-    apistub = require('apistub'),
+    model = require('models/api/'+modelName),
+    apistub = require('apistub');
     
 module.exports = function (app) {
 
@@ -99,4 +99,82 @@ module.exports = function (app) {
         res.json(req.apistub);
     });
 };
+```
+###Advanced Usage
+Using mongoose models enables referencing to different schemas creating relations. In order to populate the paths of a model that are related to different schemas can be achieved either passing a standard mongoosejs populate object, or just passing 'all'.
+
+###Example Student Model
+The following is an example of a mongoosejs model for students that relate to a classroom.
+```javascript
+'use strict';
+var mongoose = require('mongoose');
+var Model = function () {
+        var Schema = mongoose.Schema({
+            firstName: String,
+            lastName: String,
+            age: Number,
+            classroom: {
+                type:mongoose.Schema.ObjectId,
+                ref:'Classroom'
+            }
+        });
+        return mongoose.model('Student', Schema);
+    };
+module.exports = new Model();
+```
+###Example Classroom Model
+The following is an example of a mongoosejs model for the classroom.
+```javascript
+'use strict';
+var mongoose = require('mongoose');
+var Model = function () {
+        var Schema = mongoose.Schema({
+            subject: String,
+            capacity:Number
+        });
+        return mongoose.model('Classroom', Schema);
+    };
+module.exports = new Model();
+```
+###Example Controller 
+The following controller is showcasing the usage of a population of a related path.
+
+```javascript
+'use strict';
+
+var modelName = 'student',
+    model = require('models/api/'+modelName),
+    apistub = require('apistub'),
+    populate = [
+        {
+            path:'classroom',
+            select:'subject capacity'
+        }
+    ];
+module.exports = function (app) {
+    app.get('/api/'+modelName,apistub.get(model,populate), function (req, res) {
+        res.json(req.apistub);
+    });
+    app.get('/api/'+modelName+'/:id',apistub.getById(model,'all'), function(req, res){
+        res.json(req.apistub);
+    });
+};
+```
+Response for the **_get/_** and the **_get/:id_** routes. (try removing the capacity from the populate object)
+```javascript
+{
+  data:[
+   {
+    firstName:"Leon",
+    lastName:"Papazianis",
+    age:27,
+    classroom:{
+     _id: "53590b87607c3015bd9b0ebe",
+     name: "Geography",
+     capacity:30,
+     __v: 0
+    },
+   }
+  ],
+}
 ```
