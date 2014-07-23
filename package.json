@@ -1,0 +1,10 @@
+{
+  "name": "Apistub",
+  "description": "Mocking api's made easy.",
+  "author": "Leon Papazianis <l.papazianis@gmail.com>",
+  "version": "0.0.1",
+  "main": "index.js",
+  "dependencies": {
+	"qs":"0.6.6"
+  }
+}
