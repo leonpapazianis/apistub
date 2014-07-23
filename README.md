@@ -100,7 +100,7 @@ module.exports = function (app) {
     });
 };
 ```
-###Advanced Usage
+#Advanced Usage
 Using mongoose models enables referencing to different schemas creating relations. In order to populate the paths of a model that are related to different schemas can be achieved either passing a standard mongoosejs populate object, or just passing 'all'.
 
 ###Example Student Model
@@ -178,3 +178,4 @@ Response for the **_get/_** and the **_get/:id_** routes. (try removing the capa
   ],
 }
 ```
+Filter by classroom via query string parameter ex. _http://localhost:8000/api/student?**classroom=53590b87607c3015bd9b0ebe**_.
