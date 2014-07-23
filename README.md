@@ -49,9 +49,6 @@ Filter **data array** via  query string parameters ex. _http://localhost:8000/ap
 ###Example Model
 The following is an example mongoosejs model.
 ```javascript
-/**
- * A model for our user
- */
 'use strict';
 var mongoose = require('mongoose');
 var Model = function () {
