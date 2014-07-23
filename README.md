@@ -18,6 +18,10 @@ Apistub is a small nodejs module which is used to quickly stub out restful api's
  * [mongoosejs](http://mongoosejs.com/) version 3.8.3 (Non Direct)
 
 #Usage
+###Installation
+ ```
+ npm install apistub
+ ```
 ###Pagination
 Change **perPage** and **page** via  query string parameter ex. _http://localhost:8000/api/thing?**page=0&perPage=3**_
 ```javascript
