@@ -2,7 +2,7 @@ apistub
 =======
 
 Apistub is a small nodejs module which is used to quickly stub out restful api's based on monogosejs schemas that are persisted in a mongo DB.
-##Features
+#Features
 * Pagination
 * Filtering on all properties of return object
 * get
@@ -102,7 +102,7 @@ module.exports = function (app) {
 ```
 #Advanced Usage
 Using mongoose models enables referencing to different schemas creating relations. In order to populate the paths of a model that are related to different schemas can be achieved either passing a standard mongoosejs populate object, or just passing 'all'.
-
+##Populate object
 ###Example Student Model
 The following is an example of a mongoosejs model for students that relate to a classroom.
 ```javascript
