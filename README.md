@@ -15,7 +15,7 @@ Apistub is a small nodejs module which is used to quickly stub out restful api's
 
 #Dependencies
  * [qs](https://www.npmjs.org/package/qs "qs") version: 0.6.6
- * [mongoosejs](http://mongoosejs.com/) version 3.8.3
+ * [mongoosejs](http://mongoosejs.com/) version 3.8.3 (Non Direct)
 
 #Usage
 ###Pagination
