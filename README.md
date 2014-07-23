@@ -167,7 +167,7 @@ module.exports = function (app) {
     });
 };
 ```
-Response for the **_get/_** and the **_get/:id_** routes. (**Tip:**try removing the capacity from the populate object)
+Response for the **_get/_** and the **_get/:id_** routes. **Tip:**try removing the capacity from the populate object
 ```javascript
 {
   data:[
