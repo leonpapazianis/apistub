@@ -25,7 +25,7 @@ Change **perPage** and **page** via  query string parameter ex. _http://localhos
 }
 ```
 ###Filtering
-Filter **data array** via  query string parameters ex. _http://localhost:8000/api/thing?**firstName=Leo&lastName=Bal**_. (This is a fuzzy search, pass a **strict** parameter to get back exact results)
+Filter **data array** via  query string parameters ex. _http://localhost:8000/api/user?**firstName=Leo&lastName=Bal**_. (This is a fuzzy search, pass a **strict** parameter to get back exact results)
 ```Javascript
 {
   data:[
@@ -46,6 +46,24 @@ Filter **data array** via  query string parameters ex. _http://localhost:8000/ap
   totalItems: 3
 }
 ```
+###Example Model
+The following is an example mongoosejs model.
+```javascript
+/**
+ * A model for our user
+ */
+'use strict';
+var mongoose = require('mongoose');
+var Model = function () {
+        var Schema = mongoose.Schema({
+            firstName: String,
+            lastName: String,
+            age: Number
+        });
+        return mongoose.model('User', Schema);
+    };
+module.exports = new Model();
+```
 ###Example Controller
 There are 5 callbacks, one for each rest method (GET, PUT, POST, DELETE and GET/:id). Choose the callback that fits your route and pass in the model. Pass the callback just before the anonymous function that will handle the response.
 
@@ -58,7 +76,7 @@ There are 5 callbacks, one for each rest method (GET, PUT, POST, DELETE and GET/
 ```javascript
 'use strict';
 
-var modelName = 'client',
+var modelName = 'user',
     model = require('models/api/'+modelName)
     apistub = require('apistub'),
     
