@@ -4,7 +4,8 @@
   "author": "Leon Papazianis <l.papazianis@gmail.com>",
   "version": "0.0.1",
   "main": "index.js",
+  "repository": "leonpapazianis/apistub",
   "dependencies": {
-	"qs":"0.6.6"
+	"qs":"1.2.1"
   }
 }
