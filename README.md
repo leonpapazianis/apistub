@@ -1,5 +1,6 @@
 apistub
 =======
+
 Apistub is a small nodejs module which is used with expressjs to quickly stub out restful api's based on monogosejs schemas that are persisted in a mongo DB.
 #Features
 * Pagination
